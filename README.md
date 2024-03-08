@@ -14,31 +14,33 @@ Run the below command in the terminal.
 Hadoop Installation 
 1.	Download Hadoop from the official release. 
 Download the Hadoop tar file from the official website https://hadoop.apache.org/release.html. I have downloaded the Hadoop 3.3.0 version. 
-Webpage link - https://hadoop.apache.org/release/3.3.0.html 
+Webpage link - https://hadoop.apache.org/release/3.3.0.html
+<img width="1263" alt="Screenshot 2024-03-08 at 12 52 38 PM" src="https://github.com/saraswatdinesh/HadoopPrograms/assets/15999834/125b2934-66cf-4dd5-a981-7c22793c9a17">
+
  
-2.	Extract and Move Hadoop Files
+3.	Extract and Move Hadoop Files
 Once you download the Hadoop you can then extract the downloaded Hadoop tar file to the Hadoop folder in your local machine. To achieve this, you can run the below command in the terminal.
 The commands are to be run in the folder where you have downloaded the tar file.
 tar -xzvf hadoop-3.3.0.tar.gz
 mv hadoop-3.3.0 ~/hadoop 
-3.	Configure the environment variables. 
+4.	Configure the environment variables. 
 Edit the .bash_profile.sh or .zshrc file in your home directory. These are hidden files and should be able to be listed using the ls -a command.
 export HADOOP_HOME=~/hadoop
 export PATH=$PATH:$HADOOP_HOME/bin
 export PATH=$PATH:$HADOOP_HOME/sbin
 
-4.	Generate the SSH key and set up the SSH environment. 
+5.	Generate the SSH key and set up the SSH environment. 
 Run the below command in the terminal home directory
 ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
 cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
-5.	Configure Hadoop
+6.	Configure Hadoop
 Navigate to the Hadoop configuration directory and edit hadoop-env.sh:
 cd ~/hadoop/etc/hadoop
 nano hadoop-env.sh
 Add or modify the following line to set the Java home:
 export JAVA_HOME=/path/to/your/java/home
 
-6.	Configure Core-Site.xml
+7.	Configure Core-Site.xml
 Edit core-site.xml: Add the following configuration
 <configuration>
     <property>
@@ -47,7 +49,7 @@ Edit core-site.xml: Add the following configuration
     </property>
 </configuration>
 
-7.	  Configure HDFS-Site.xml
+8.	  Configure HDFS-Site.xml
 Edit hdfs-site.xml: Add the following configuration
 <configuration>
     <property>
@@ -56,11 +58,11 @@ Edit hdfs-site.xml: Add the following configuration
     </property>
 </configuration>
 
-8.	Format HDFS:
+9.	Format HDFS:
 Format the Hadoop file system  by running the below command –
 hdfs namenode -format
 
-9.	Start Hadoop services 
+10.	Start Hadoop services 
 Run the below command on the terminal – 
 start-dfs.sh
 Once you run the below command you may see the name node and data node has been started.
